@@ -1,0 +1,16 @@
+name: Newman Action
+run-name: 'Run Postman collection via Newman'
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - '*-collection'
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@master
+        - uses: matt-ball/newman-action@master
+          with:
+            collection: Phonebook.postman_collection.json
