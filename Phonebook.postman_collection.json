@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "943c8952-1b9f-4041-b82d-8ffda8d3adbd",
+		"_postman_id": "937ed62d-c440-422c-8d10-a4c75c23a3c3",
 		"name": "Phonebook with pre-request script",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18671567"
@@ -11,56 +11,6 @@
 			"item": [
 				{
 					"name": "Login",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Body matches string\", function () {\r",
-									"    pm.expect(pm.response.text()).to.include(\"\");\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test@gmail.com\"\r\n}"
-						},
-						"url": {
-							"raw": "http://phonebook.telran-edu.de:8080/api/user/login",
-							"protocol": "http",
-							"host": [
-								"phonebook",
-								"telran-edu",
-								"de"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"user",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login Copy",
 					"event": [
 						{
 							"listen": "test",

@@ -11,4 +11,4 @@
         - uses: actions/checkout@master
         - uses: matt-ball/newman-action@master
           with:
-            collection: Phonebook-with-pre-request-script.postman_collection.json
+            collection: Phonebook.postman_collection.json
