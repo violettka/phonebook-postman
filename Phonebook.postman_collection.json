@@ -284,59 +284,6 @@
 					"response": []
 				},
 				{
-					"name": "Edit Contact",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Access-Token",
-								"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY3MDY5MDk5MH0.3mSXPeWk_R1AON8nRo3GGtqCjLPJjtEeYphNqIytw83Kix5g2il5EPQ9Zo4t2e3G3BL2PwiNvUhuD82xvu2-eQ",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"id\":14,\"firstName\":\"Lars\",\"lastName\":\"Black\",\"description\":\"New contact\"}"
-						},
-						"url": {
-							"raw": "http://phonebook.telran-edu.de:8080/api/contact",
-							"protocol": "http",
-							"host": [
-								"phonebook",
-								"telran-edu",
-								"de"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"contact"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Remove by ID",
 					"event": [
 						{
