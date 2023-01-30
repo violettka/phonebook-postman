@@ -3,6 +3,9 @@ run-name: 'Run Postman collection via Newman'
 on:
   pull_request:
     types: [opened]
+  push:
+    branches:
+      - '*-collection'
 jobs:
   newman:
     runs-on: ubuntu-latest
