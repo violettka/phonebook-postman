@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "943c8952-1b9f-4041-b82d-8ffda8d3adbd",
+		"name": "Phonebook with pre-request script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18671567"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incorrect password entry Negative Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Unauthorized\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"tist@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Incorrect URL  Negative Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", function () {\r",
+									"    pm.response.to.have.status(405);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Method Not Allowed\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test@gmail.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/user/1234",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HW Contacts",
+			"item": [
+				{
+					"name": "Get Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/contact/{{contact_id}}",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact",
+								"{{contact_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Erik\");\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY3MDY5MDk5MH0.3mSXPeWk_R1AON8nRo3GGtqCjLPJjtEeYphNqIytw83Kix5g2il5EPQ9Zo4t2e3G3BL2PwiNvUhuD82xvu2-eQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\": \"Erik\", \"lastName\": \"Gottmann\", \"description\": \"New contact\"}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/contact",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY3MDY5MDk5MH0.3mSXPeWk_R1AON8nRo3GGtqCjLPJjtEeYphNqIytw83Kix5g2il5EPQ9Zo4t2e3G3BL2PwiNvUhuD82xvu2-eQ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":14,\"firstName\":\"Lars\",\"lastName\":\"Black\",\"description\":\"New contact\"}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/contact",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    url: 'http://phonebook.telran-edu.de:8080/api/contact',",
+									"    method: 'POST',",
+									"    header: {",
+									"        'Content-Type': 'application/json',",
+									"        'Access-Token': pm.globals.get(\"TOKEN\")",
+									"    },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({\"firstName\": pm.variables.replaceIn('{{$randomFirstName}}'), \"lastName\": pm.variables.replaceIn('{{$randomLastName}}'), \"description\": pm.variables.replaceIn('{{$randomBs}}')})",
+									"    }",
+									"}, (err, res) => pm.environment.set(\"contact_id\", res.json().id));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/contact/{{contact_id}}",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact",
+								"{{contact_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Key entry incorrect Negative Test",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 415\", function () {\r",
+									"    pm.response.to.have.status(415);\r",
+									"});\r",
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Unsupported Media Type\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Access-Token",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY3MDY5MDk5MH0.3mSXPeWk_R1AON8nRo3GGtqCjLPJjtEeYphNqIytw83Kix5g2il5EPQ9Zo4t2e3G3BL2PwiNvUhuD82xvu2-eQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":25,\"firstName\":\"Leon\",\"lastName\":\"Leon\",\"description\":\"New contact\"}"
+						},
+						"url": {
+							"raw": "http://phonebook.telran-edu.de:8080/api/contact",
+							"protocol": "http",
+							"host": [
+								"phonebook",
+								"telran-edu",
+								"de"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Access-Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest({",
+					"    url: 'http://phonebook.telran-edu.de:8080/api/user/login',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'Content-Type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({ \"email\": \"test@gmail.com\", \"password\": \"test@gmail.com\" })",
+					"    }",
+					"}, (err, res) => pm.globals.set(\"TOKEN\", res.headers.get(\"Access-Token\")));",
+					"",
+					"pm.sendRequest({",
+					"    url: 'http://phonebook.telran-edu.de:8080/api/contact',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'Content-Type': 'application/json',",
+					"        'Access-Token': pm.globals.get(\"TOKEN\")",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({\"firstName\": pm.variables.replaceIn('{{$randomFirstName}}'), \"lastName\": pm.variables.replaceIn('{{$randomLastName}}'), \"description\": pm.variables.replaceIn('{{$randomBs}}')})",
+					"    }",
+					"}, (err, res) => pm.environment.set(\"contact_id\", res.json().id));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
