@@ -2,7 +2,7 @@ name: Newman Action
 run-name: 'Run Postman collection via Newman'
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened]
 jobs:
   newman:
     runs-on: ubuntu-latest
