@@ -1,9 +1,6 @@
 name: Newman Action
 description: 'Run Postman collection via Newman'
-on:
-  pull_request:
-    branches:
-      - master
+on: [push]
 jobs:
   newman:
     runs-on: ubuntu-latest
