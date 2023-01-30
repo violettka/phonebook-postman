@@ -1,13 +1,13 @@
-- name: Newman Action
-  description: 'Run Postman collection via Newman'
-  on:
-    pull_request:
-      branches:
-        - master
-  jobs:
-    newman:
-      runs-on: ubuntu-latest
-      steps:
+name: Newman Action
+description: 'Run Postman collection via Newman'
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
         - uses: actions/checkout@master
         - uses: matt-ball/newman-action@master
           with:
